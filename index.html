@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Felman Garcia">
-  <meta name="description" content="Personal portfolio of Felman Garcia, an experienced IT professional, web application developer, CS and IT instructor, and Microsoft-certified technology professional specializing in software development, digital transformation, and IT training.">
+  <meta name="description" content="Personal portfolio of Felman Garcia, an experienced IT professional, web application developer, IT instructor, and Microsoft-certified technology professional specializing in software development, digital transformation, and IT training.">
   <title>Felman Garcia | IT Professional &amp; Web Application Developer</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -36,9 +36,9 @@
 <section class="hero" aria-labelledby="hero-title">
   <div class="container hero-grid">
     <div class="hero-text">
-      <p class="hero-kicker">IT Professional • Web Application Developer • CS and IT Instructor</p>
+      <p class="hero-kicker">IT Professional • Web Application Developer • IT Instructor</p>
       <h1 id="hero-title">Felman Garcia</h1>
-      <p class="hero-roles">IT Professional<br>Web Application Developer<br>CS and IT Instructor</p>
+      <p class="hero-roles">IT Professional<br>Web Application Developer<br>IT Instructor</p>
       <p class="hero-intro">Highly experienced IT professional and web application developer with over 15 years of expertise in software development, systems implementation, and IT training. I turn manual organizational processes into efficient digital systems.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="#portfolio">View My Work</a>
@@ -53,7 +53,7 @@
     </div>
     <figure class="photo">
       <!-- Replace this placeholder with: <img src="photo.jpg" alt="Portrait of Felman Garcia"> -->
-      <div class="photo-placeholder" role="img" aria-label="Professional photo placeholder"><img src="photo.jpg" alt="Portrait of Felman Garcia"></div>
+      <div class="photo-placeholder" role="img" aria-label="Professional photo placeholder">[Professional Photo]</div>
     </figure>
   </div>
 </section>
@@ -81,12 +81,6 @@
   <div class="container">
     <h2 id="exp-title">Professional Experience</h2>
     <ol class="timeline">
-       <li class="featured">
-        <h3>CS Faculty (Part-timer)</h3>
-        <p class="org">CIIT College of Arts and Technology – 94 Kamuning Rd, Diliman, Quezon City, 1103 Metro Manila, Philippines</p>
-        <p class="date">September 7, 2026 – Present</p>
-        <p>Taught courses in the Bachelor’s program in Computer Science, Information Systems, and Multimedia particularly computer programming and web application development.</p>
-      </li>
       <li class="featured">
         <h3>IT Instructor 2</h3>
         <p class="org">University of Technology and Applied Sciences – Shinas Branch, Sultanate of Oman</p>
@@ -205,10 +199,10 @@
   <div class="container">
     <h2 id="edu-title">Education</h2>
     <div class="grid grid-2">
-      <article class="card"><h3>Master of Science in Computer Science</h3><p class="org">AMA University OED, Panay Avenue, Quezon City</p><p>Graduated on October 2026</p></article>
+      <article class="card"><h3>Master of Science in Computer Science (Candidate)</h3><p class="org">AMA University OED, Panay Avenue, Quezon City</p><p>Completed academic requirements – 33 units earned and Thesis Final Defense</p></article>
       <article class="card"><h3>Master of Arts in Teaching major in IT Education</h3><p class="org">Central Colleges of the Philippines</p><p>November 2007 – May 2008 · 9 units earned</p></article>
       <article class="card"><h3>Master of Business Administration</h3><p class="org">Central Colleges of the Philippines</p><p>June 2007 – December 2007 · 9 units earned</p></article>
-      <article class="card"><h3>Bachelor of Science in Computer Science</h3><p class="org">Central Colleges of the Philippines</p><p>Graduated on May 2000</p></article>
+      <article class="card"><h3>Bachelor of Science in Computer Science</h3><p class="org">Central Colleges of the Philippines</p><p>Graduated May 2000</p></article>
     </div>
   </div>
 </section>
@@ -291,18 +285,24 @@
         <h4>Profiles</h4>
         <p><!-- Add real URLs when available --><span class="placeholder">LinkedIn – link to be added</span><br><span class="placeholder">GitHub – link to be added</span></p>
       </div>
-      <!-- Visual form only: no JavaScript or server endpoint. Add an action URL to a form service to make it work. -->
-      <form class="card form" action="#" method="post">
+      <!-- Working contact form (no JavaScript): submissions are emailed through FormSubmit.co.
+           Messages go to felman.garcia@gmail.com with a copy to felman.garcia@hotmail.com.
+           First-time setup: open the page online, submit the form once, then click the
+           activation link FormSubmit emails to felman.garcia@gmail.com. -->
+      <form class="card form" action="https://formsubmit.co/felman.garcia@gmail.com" method="POST">
+        <input type="hidden" name="_cc" value="felman.garcia@hotmail.com">
+        <input type="hidden" name="_template" value="table">
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" hidden><!-- spam trap -->
         <label for="f-name">Name</label>
-        <input id="f-name" name="name" type="text" autocomplete="name">
+        <input id="f-name" name="name" type="text" autocomplete="name" required>
         <label for="f-email">Email</label>
-        <input id="f-email" name="email" type="email" autocomplete="email">
+        <input id="f-email" name="email" type="email" autocomplete="email" required>
         <label for="f-subject">Subject</label>
-        <input id="f-subject" name="subject" type="text">
+        <input id="f-subject" name="_subject" type="text" required>
         <label for="f-message">Message</label>
-        <textarea id="f-message" name="message" rows="5"></textarea>
+        <textarea id="f-message" name="message" rows="5" required></textarea>
         <button class="btn btn-primary" type="submit">Send Message</button>
-        <p class="note">This form is a visual placeholder and does not send messages yet. Please use the email links.</p>
+        <p class="note">Your message is sent by email to Felman Garcia, who can reply to the address you enter above.</p>
       </form>
     </div>
   </div>
@@ -315,7 +315,7 @@
   <div class="container footer-grid">
     <div>
       <p class="footer-name">Felman Garcia</p>
-      <p>IT Professional • Web Application Developer • CS and IT Instructor</p>
+      <p>IT Professional • Web Application Developer • IT Instructor</p>
     </div>
     <nav aria-label="Footer navigation">
       <ul class="footer-links">

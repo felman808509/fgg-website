@@ -382,3 +382,62 @@ h2::before { background: linear-gradient(135deg, rgba(34,211,238,.25), rgba(139,
   .prose p:first-child::first-letter { font-size: 2.8rem; }
   .timeline > li:hover { transform: none; }
 }
+
+
+/* ==========================================================
+   CODE & BINARY BACKGROUND LAYER
+   Binary rain and code snippets are inline SVG images, so no
+   extra files or JavaScript are needed.
+   ========================================================== */
+
+:root {
+  /* Vertical columns of binary digits (tile: 320 x 400) */
+  --binary: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='400' font-family='Consolas,Courier New,monospace' font-size='14' fill='%2322d3ee' writing-mode='vertical-rl' text-orientation='upright'%3E%3Ctext x='16' y='4' fill-opacity='.32'%3E0110100101001101100101001011%3C/text%3E%3Ctext x='56' y='4' fill-opacity='.18'%3E1010011010110010010110100110%3C/text%3E%3Ctext x='96' y='4' fill-opacity='.40'%3E0100110101100101011010011001%3C/text%3E%3Ctext x='136' y='4' fill-opacity='.22'%3E1101001011010100110010110101%3C/text%3E%3Ctext x='176' y='4' fill-opacity='.30'%3E0011010110100101101001011010%3C/text%3E%3Ctext x='216' y='4' fill-opacity='.16'%3E1001011010011010010110100101%3C/text%3E%3Ctext x='256' y='4' fill-opacity='.36'%3E0101101001011001101001101001%3C/text%3E%3Ctext x='296' y='4' fill-opacity='.20'%3E1100101101001011010100101101%3C/text%3E%3C/svg%3E");
+  /* Scattered lines of source code (tile: 520 x 360) */
+  --code: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='360' font-family='Consolas,Courier New,monospace' font-size='13' fill='%2322d3ee' fill-opacity='.2'%3E%3Ctext x='10' y='28'%3Econst dev = { role: 'IT Professional' };%3C/text%3E%3Ctext x='120' y='70'%3ESELECT * FROM Requests WHERE Status = 1;%3C/text%3E%3Ctext x='30' y='112'%3Efor (int i = 0; i %26lt; 15; i++) years++;%3C/text%3E%3Ctext x='200' y='154'%3E%26lt;section id='portfolio'%26gt;%26lt;/section%26gt;%3C/text%3E%3Ctext x='10' y='196'%3Eapp.MapControllers(); app.Run();%3C/text%3E%3Ctext x='150' y='238'%3Edef train(model): return model.fit(X, y)%3C/text%3E%3Ctext x='40' y='280'%3Epublic async Task%26lt;IActionResult%26gt; Index()%3C/text%3E%3Ctext x='230' y='322'%3Egit commit -m 'digital transformation'%3C/text%3E%3Ctext x='10' y='350'%3E} // 01000110 01000111%3C/text%3E%3C/svg%3E");
+}
+
+/* ---------- Page-wide binary rain (fixed layer drifting down) ---------- */
+body::after { content: ""; position: fixed; left: 0; right: 0; top: -400px; height: calc(100vh + 400px); z-index: -1; pointer-events: none; background: var(--binary); opacity: .55; animation: fall 45s linear infinite; }
+@keyframes fall { to { transform: translateY(400px); } }
+
+/* Let the rain show through the alternating sections */
+.section.alt { background: rgba(8, 19, 37, .8) var(--grid); }
+.section.dark { background: linear-gradient(180deg, rgba(6, 20, 43, .88), rgba(10, 29, 61, .88)); }
+
+/* ---------- Code snippets along the sides of every section ---------- */
+.section > .container { position: relative; z-index: 1; }
+.section::after { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; background: var(--code); background-size: 520px 360px;
+  -webkit-mask-image: linear-gradient(90deg, #000, transparent 30%, transparent 70%, #000);
+          mask-image: linear-gradient(90deg, #000, transparent 30%, transparent 70%, #000); }
+#experience::after { background-position: 140px 60px; }
+#portfolio::after { background-position: 60px 120px; }
+#certifications::after { background-position: 220px 20px; }
+#training::after { background-position: 100px 200px; }
+
+/* ---------- Hero: stronger falling binary behind the circuit lines ---------- */
+.hero {
+  background:
+    radial-gradient(circle at 78% 30%, rgba(59,130,246,.35), transparent 45%),
+    radial-gradient(circle at 10% 90%, rgba(34,211,238,.15), transparent 40%),
+    var(--circuit),
+    var(--binary),
+    #040a16;
+  background-position: 0 0, 0 0, 0 0, 0 0, 0 0;
+  animation: matrix 30s linear infinite;
+}
+@keyframes matrix { to { background-position: 0 0, 0 0, 0 0, 0 400px, 0 0; } }
+.hero-roles::after { content: "01000110 01000101 01001100 01001101 01000001 01001110"; display: block; margin-top: .7rem; font-size: .8rem; font-weight: 400; letter-spacing: .08em; color: var(--cyan); opacity: .6; }
+
+/* ---------- Footer: binary strip spelling FELMAN GARCIA ---------- */
+.site-footer::after { content: "01000110 01000101 01001100 01001101 01000001 01001110 00100000 01000111 01000001 01010010 01000011 01001001 01000001 00100000 01000110 01000101 01001100 01001101 01000001 01001110 00100000 01000111 01000001 01010010 01000011 01001001 01000001"; position: absolute; left: 0; right: 0; bottom: .4rem; overflow: hidden; white-space: nowrap; text-align: center; font: .7rem var(--mono); letter-spacing: .12em; color: var(--cyan); opacity: .25; pointer-events: none; }
+.copyright { margin-bottom: 1rem; }
+
+/* ---------- Reduced motion & small screens ---------- */
+@media (prefers-reduced-motion: reduce) {
+  body::after, .hero { animation: none !important; }
+}
+@media (max-width: 640px) {
+  body::after { opacity: .35; }
+  .section::after { opacity: .6; }
+}
